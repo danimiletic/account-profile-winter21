@@ -1,20 +1,35 @@
 import { UserConsumer } from '../../providers/UserProvider';
 import Moment from 'react-moment';
+import { Image, Card, Button } from 'react-bootstrap';
 
 const Account = ({ username, created_at, memberlvl, img }) => {
   return (
     <>
-      <h1>{username}</h1>
-      <img src={img} alt='profile image' />
-      <p>
-        Date Joined:
+      {/* <h1>{username}</h1> */}
+      <Image src={img} alt='profile image' thumbnail width="200px" />
+      {/* <p>
+        Date Joined: 
         <Moment format='MM/DD/YYYY'>
           {created_at}
         </Moment>
       </p>
       <p>
         Membership Level: {memberlvl}
-      </p>
+      </p> */}
+      <Card style={{ width: '18rem' }}>
+        <Card.Img variant="top" src={img} />
+        <Card.Body>
+          <Card.Title>{username}</Card.Title>
+          <Card.Text>
+            Date Joined: 
+            <Moment format='MM/DD/YYYY'>
+              {created_at}
+            </Moment>
+            <br />
+            Membership Level: {memberlvl}
+          </Card.Text>
+        </Card.Body>
+      </Card>
     </>
   )
 }
